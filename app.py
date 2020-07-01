@@ -17,7 +17,7 @@ tarefas =[
     }
 ]
 
-@app.route('/a/<int:id>', methods = ['GET', 'PUT', 'DELETE'])
+@app.route('/tarefa/<int:id>', methods = ['GET', 'PUT', 'DELETE'])
 def tarefa(id):
     if request.method =='GET':
         try:
@@ -38,7 +38,7 @@ def tarefa(id):
         tarefas.pop(id)
         return jsonify({'status':'sucesso', 'mensagem':'Registro excluído'})
 
-@app.route('/a/', methods = ['POST', 'GET'])
+@app.route('/tarefa/', methods = ['POST', 'GET'])
 def lista_tarefas():
     if request.method =='POST':
         dados = json.loads(request.data)
